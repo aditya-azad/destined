@@ -1,0 +1,40 @@
+{
+  "name": "destined",
+  "version": "1.0.0",
+  "description": "A tasks/calendar management system",
+  "main": "./src/electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run client\" \"npm run electron\"",
+    "client": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.js",
+    "electron": "electron ."
+  },
+  "author": "Aditya Azad",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "electron": "^9.0.5",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "sass-loader": "^9.0.0",
+    "source-map-loader": "^1.0.1",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
