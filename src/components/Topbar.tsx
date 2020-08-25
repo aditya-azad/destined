@@ -7,10 +7,13 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const TopBar: React.FC = () => {
 
   const getDateTime = () => {
-    const months = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let currDateTime = new Date();
-    let formattedDateTime = currDateTime.getDate() + " " + months[currDateTime.getMonth()] + " " + currDateTime.getFullYear() + ", " + currDateTime.toLocaleTimeString();
+    let formattedDateTime = currDateTime.getDate() + " " +
+      months[currDateTime.getMonth()] + " " + currDateTime.getFullYear() + ", " +
+      days[currDateTime.getDay()] + ", " + currDateTime.toLocaleTimeString();
     return formattedDateTime;
   }
 
