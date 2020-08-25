@@ -1,3 +1,12 @@
-.display_container {
+.display-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
+.display-content {
+  margin-top: 40px;
+  width: 90%;
+  align-self: center;
+  justify-content: flex-start;
 }

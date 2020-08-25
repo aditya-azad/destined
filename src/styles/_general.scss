@@ -1,9 +1,29 @@
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  // fonts
+  --heading-font: "Roboto";
+  --content-font: "Roboto";
+
+  //colors
+  --background-color: #1C1C1C;
+  --secondary-color: #404040;
+  --tertiary-color: #8C8C8C;
+  --text-color: #F2F2F2;
+  --accent-color: #D99962;
+}
+
+
 // basic reset
 html {
   box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--content-font);
+  background-color: var(--background-color);
 }
 
 *, *::before, *::after {
@@ -11,6 +31,3 @@ html {
   margin: 0;
   padding: 0;
 }
-
-// fonts
-$heading-font: "Roboto";
