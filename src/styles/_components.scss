@@ -1,4 +1,4 @@
-// category
+//////////////////////////////////////////////////////////////////////////// category
 .category-container {
   margin-bottom: 25px;
 }
@@ -10,13 +10,11 @@
   color: var(--accent-color);
 }
 
-
-// todo
+//////////////////////////////////////////////////////////////////////////// todo
 .todo-container {
   display: flex;
   margin-top: 5px;
   font-size: 1em;
-  font-family: var(--content-font);
   * {
     align-self: center;
   }
@@ -44,17 +42,13 @@
   * {
     margin-right: 10px;
   }
+  :last-child {
+    margin-right: 0;
+  }
 }
 
-.todo-time {
-  //placeholder
-}
 
-.todo-date {
-  //placeholder
-}
-
-// topbar
+//////////////////////////////////////////////////////////////////////////// topbar
 .topbar-container {
   display: flex;
   justify-content: space-between;
@@ -68,14 +62,34 @@
   }
 }
 
-.topbar-left-container {
-
+//////////////////////////////////////////////////////////////////////////// add todo
+.add-todo-container {
+  display: flex;
+  padding: 10px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 5px;
+  margin-bottom: 30px;
 }
 
-.topbar-right-container {
-  margin-right: 10px;
+.add-todo-content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  * {
+    font-size: 1em;
+    margin-right: 15px;
+  }
+  :first-child {
+    flex-grow: 2;
+  }
+  :not(:first-child) {
+    width: 120px;  
+  }
+  :nth-last-child(2) {
+    margin-right: 0;
+  }
 }
 
-.topbar-menu-item {
-
+.submit-button {
+  display: none;
 }

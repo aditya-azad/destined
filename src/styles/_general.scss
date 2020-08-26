@@ -26,6 +26,14 @@ body {
   background-color: var(--background-color);
 }
 
+input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--tertiary-color);
+  color: var(--text-color);
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
   margin: 0;

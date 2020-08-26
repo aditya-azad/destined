@@ -1,10 +1,14 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { toggleAddTodoBar } from "../slices/globals";
 
 const TopBar: React.FC = () => {
+
+  const dispatch = useDispatch();
 
   const getDateTime = () => {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -17,21 +21,21 @@ const TopBar: React.FC = () => {
     return formattedDateTime;
   }
 
-  const [dateTime, setDateTime] = useState(getDateTime());
-
   useEffect(() => {
     setTimeout(() => {
       setDateTime(getDateTime());
     }, 1000);
   });
 
+  const [dateTime, setDateTime] = useState(getDateTime());
+
   return (
     <div className="topbar-container">
-      <div className="topbar-left-container">
+      <div>
         {dateTime}
       </div>
-      <div className="topbar-right-container">
-        <div className="topbar-menu-item"><FontAwesomeIcon icon={faPlus}/></div>
+      <div>
+        <div><FontAwesomeIcon icon={faPlus} onClick={() => dispatch(toggleAddTodoBar())}/></div>
       </div>
     </div>
   )
