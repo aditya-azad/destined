@@ -13,7 +13,7 @@ export interface TodoModifyPayload {
 export interface TodoProps {
   shouldDisplayDate: boolean
   shouldDisplayTime: boolean
-  body: string
+  todo: Todo
 }
 
 export interface GlobalsState {

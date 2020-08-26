@@ -12,9 +12,11 @@ const MainScreen: React.FC = () => {
 
   let todoList = [];
 
+  console.log(todos);
+
   for (let key in todos) {
     todoList.push(
-      <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} body={todos[key].body}/>
+      <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]}/>
     )
   }
 

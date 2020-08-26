@@ -21,12 +21,30 @@ const AddTodoBox: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // see if the task is valid
     if (taskText != "") {
       let todo: TodoInterface = {
         body: taskText,
         date: dateText,
         time: timeText,
         done: false
+      }
+      // parse date time
+      if (dateText != "") {
+        let parsedDate = new Date(dateText);
+        if (isNaN(parsedDate.getTime())) return;
+        // fix year
+        if (parsedDate.getFullYear() < new Date().getFullYear()) parsedDate.setFullYear(new Date().getFullYear());
+        todo.date = parsedDate.toDateString();
+        // parse time if added
+        if (timeText != "") {
+          var d = new Date();
+          var time = timeText.match( /(\d+)(?::(\d\d))?\s*(p?)/ );
+          d.setHours( parseInt( time[1]) + (time[3] ? 12 : 0) );
+          d.setMinutes( parseInt( time[2]) || 0 );
+          d.setSeconds(0);
+          todo.time = d.toLocaleTimeString();
+        }
       }
       dispatch(addTodo(todo));
     }
