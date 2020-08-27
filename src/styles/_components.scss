@@ -47,6 +47,9 @@
   }
 }
 
+.todo-overdue {
+  color: var(--warning-color);
+}
 
 //////////////////////////////////////////////////////////////////////////// topbar
 .topbar-container {
@@ -83,11 +86,10 @@
     flex-grow: 2;
   }
   :not(:first-child) {
-    width: 140px;  
+    width: 90px;  
   }
   :nth-last-child(2) {
     margin-right: 0;
-    width: 90px;
   }
   input[type="date"], input[type="time"] {
     appearance: none;

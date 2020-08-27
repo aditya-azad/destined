@@ -1,8 +1,9 @@
 import * as React from "react";
 import { TodoProps } from "../types";
-import { Todo as TodoInterface } from "../types";
 
-const Todo: React.FC<TodoProps> = ({shouldDisplayDate, shouldDisplayTime, todo}) => {
+const Todo: React.FC<TodoProps> = (props) => {
+
+  const todo = props.todo;
 
   const renderDate = () => {
     let arr = todo.date.split(" ");
@@ -31,11 +32,11 @@ const Todo: React.FC<TodoProps> = ({shouldDisplayDate, shouldDisplayTime, todo})
   return (
     <div className="todo-container">
       <div className="todo-checkbox"></div>
-      <div className="todo-body">
+      <div className={"todo-body" + (props.overdue ? " todo-overdue" : "")}>
         {todo.body}
-        <div className="todo-timestamp-container">
-          {shouldDisplayDate && todo.date != "" ? renderDate() : null}
-          {shouldDisplayTime && todo.time != "" ? renderTime() : null}
+        <div className={"todo-timestamp-container" + (props.overdue ? " todo-overdue" : "")}>
+          {props.shouldDisplayDate && todo.date != "" ? renderDate() : null}
+          {props.shouldDisplayTime && todo.time != "" ? renderTime() : null}
         </div>
       </div>
     </div>

@@ -38,11 +38,15 @@ const AddTodoBox: React.FC = () => {
         todo.date = parsedDate.toDateString();
         // parse time if added
         if (timeText != "") {
-          var d = new Date();
-          var time = timeText.match( /(\d+)(?::(\d\d))?\s*(p?)/ );
-          d.setHours( parseInt( time[1]) + (time[3] ? 12 : 0) );
-          d.setMinutes( parseInt( time[2]) || 0 );
-          d.setSeconds(0);
+          var time = timeText.match(/(\d+)(:(\d\d))?\s*(p?)/i);	
+          if (time == null) return;
+          var hours = parseInt(time[1],10);	 
+          if (hours == 12 && !time[4]) { hours = 0; }
+          else { hours += (hours < 12 && time[4])? 12 : 0; }	
+          var d = new Date();    	    	
+          d.setHours(hours);
+          d.setMinutes(parseInt(time[3],10) || 0);
+          d.setSeconds(0, 0);	 
           todo.time = d.toLocaleTimeString();
         }
       }

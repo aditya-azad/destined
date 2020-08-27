@@ -11,8 +11,9 @@ export interface TodoModifyPayload {
 }
 
 export interface TodoProps {
-  shouldDisplayDate: boolean
-  shouldDisplayTime: boolean
+  shouldDisplayDate?: boolean
+  shouldDisplayTime?: boolean
+  overdue?: boolean
   todo: Todo
 }
 
