@@ -16,5 +16,5 @@ export const saveTodos = (todos: TodoStateInterface) => {
 }
 
 export const fetchTodos = () => {
-  return JSON.parse(JSON.parse(ipcRenderer.sendSync("get-todos")));
+  return ipcRenderer.sendSync("get-todos");
 }

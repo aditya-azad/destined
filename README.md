@@ -1,7 +1,8 @@
 # Destined (UNDER CONSTRUCTION)
 
 **todo**
-- use local fonts instead of google
+- Use local fonts instead of google
+- Setting passed date on todo forwards to next year unless specified
 
 ## What is this?
 

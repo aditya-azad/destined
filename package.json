@@ -7,7 +7,8 @@
     "dev": "concurrently \"npm run client\" \"npm run electron\"",
     "client": "webpack-dev-server --config config/webpack.config.js",
     "electron": "electron .",
-    "build": "webpack --config config/webpack.config.js"
+    "build": "webpack --config config/webpack.config.js",
+    "package": "electron-packager ."
   },
   "author": "Aditya Azad",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "concurrently": "^5.2.0",
     "css-loader": "^3.6.0",
     "electron": "^9.0.5",
+    "electron-packager": "^15.1.0",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",

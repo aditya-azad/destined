@@ -13,7 +13,7 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-
+  isDev ? null : win.removeMenu();
   win.loadURL(isDev ? "http://localhost:8080" : `file://${path.join(__dirname, "../build/index.html")}`);
 }
 
@@ -40,5 +40,9 @@ ipcMain.handle("save-todos", (event, todos) => {
 })
 
 ipcMain.on("get-todos", (event) => {
-  event.returnValue = fs.readFileSync(TODOS_FILE, "utf8");
+  try {
+    event.returnValue = JSON.parse(JSON.parse(fs.readFileSync(TODOS_FILE, "utf8")));
+  } catch {
+    event.returnValue = {};
+  }
 });
