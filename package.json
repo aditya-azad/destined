@@ -2,12 +2,12 @@
   "name": "destined",
   "version": "1.0.0",
   "description": "A tasks/calendar management system",
-  "main": "./src/electron/main.js",
+  "main": "./src/electron.js",
   "scripts": {
     "dev": "concurrently \"npm run client\" \"npm run electron\"",
-    "client": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.js",
-    "build": "webpack --config config/webpack.config.js",
-    "electron": "electron ."
+    "client": "webpack-dev-server --config config/webpack.config.js",
+    "electron": "electron .",
+    "build": "webpack --config config/webpack.config.js"
   },
   "author": "Aditya Azad",
   "license": "MIT",
@@ -16,7 +16,6 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "concurrently": "^5.2.0",
-    "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "electron": "^9.0.5",
     "html-webpack-plugin": "^4.3.0",
@@ -36,6 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@reduxjs/toolkit": "^1.4.0",
+    "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1"

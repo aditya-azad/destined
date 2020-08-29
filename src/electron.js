@@ -1,5 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
+const path = require("path");
+const isDev = require("electron-is-dev");
 
 const TODOS_FILE = "destined-todos.json";
 
@@ -12,7 +14,7 @@ function createWindow() {
     },
   });
 
-  win.loadURL(`http://localhost:8080`);
+  win.loadURL(isDev ? "http://localhost:8080" : `file://${path.join(__dirname, "../build/index.html")}`);
 }
 
 app.whenReady().then(createWindow);
