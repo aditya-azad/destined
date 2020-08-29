@@ -1,9 +1,18 @@
 import * as React from "react";
+
 import { TodoProps } from "../types";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "../slices/todos";
 
 const Todo: React.FC<TodoProps> = (props) => {
 
+  const dispatch = useDispatch();
+
   const todo = props.todo;
+
+  const markDone = () => {
+    dispatch(deleteTodo(props.id));
+  }
 
   const renderDate = () => {
     let arr = todo.date.split(" ");
@@ -31,7 +40,7 @@ const Todo: React.FC<TodoProps> = (props) => {
 
   return (
     <div className="todo-container">
-      <div className="todo-checkbox"></div>
+      <div className="todo-checkbox" onClick={markDone}></div>
       <div className={"todo-body" + (props.overdue ? " todo-overdue" : "")}>
         {todo.body}
         <div className={"todo-timestamp-container" + (props.overdue ? " todo-overdue" : "")}>

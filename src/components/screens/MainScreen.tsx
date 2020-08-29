@@ -34,23 +34,24 @@ const MainScreen: React.FC = () => {
     let dateTimeString = todos[key].date + " " + todos[key].time;
     if (todos[key].date == "") {
       unscheduledTodoList.push(
-        <Todo key={key} todo={todos[key]}/>
+        <Todo key={key} todo={todos[key]} id={key}/>
       )
     } else if (isToday(dateTimeString) == 0) {
       todayTodoList.push(
-        <Todo key={key} shouldDisplayTime={true} todo={todos[key]}/>
+        <Todo key={key} shouldDisplayTime={true} todo={todos[key]} id={key}/>
       )
     } else if (isToday(dateTimeString) < 0) {
       overdueTodoList.push(
-        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]} overdue={true}/>
+        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]} id={key} overdue={true}/>
       )
     } else {
       upcomingTodoList.push(
-        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]}/>
+        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]} id={key}/>
       )
     }
   }
 
+  // sort the lists
   todayTodoList.sort(dateSorter);
   overdueTodoList.sort(dateSorter);
   upcomingTodoList.sort(dateSorter);

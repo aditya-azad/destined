@@ -29,6 +29,10 @@
   height: 20px;
 }
 
+.todo-checkbox:hover {
+  border: 2px solid var(--tertiary-color);
+}
+
 .todo-body {
   width: 100%;
   display: flex;
