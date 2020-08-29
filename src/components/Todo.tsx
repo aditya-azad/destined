@@ -10,6 +10,8 @@ const Todo: React.FC<TodoProps> = (props) => {
 
   const todo = props.todo;
 
+  console.log(todo);
+
   const markDone = () => {
     dispatch(deleteTodo(props.id));
   }

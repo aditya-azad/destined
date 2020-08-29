@@ -15,8 +15,6 @@ const MainScreen: React.FC = () => {
   let unscheduledTodoList = [];
   let overdueTodoList = [];
 
-  console.log(todos);
-
   const dateSorter = (a: any, b: any) => {
     let dateA = new Date(a.props.todo.date + " " + a.props.todo.time);
     let dateB = new Date(b.props.todo.date + " " + b.props.todo.time);

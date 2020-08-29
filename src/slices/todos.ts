@@ -2,13 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 import { randomIDGenerator } from "../utils";
 import { Todo, TodoStateInterface, TodoModifyPayload } from "../types";
+import { saveTodos, fetchTodos } from "../utils";
 
-const initialState:TodoStateInterface = {};
+let initialState:TodoStateInterface = fetchTodos();
 
 const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+
     addTodo: (state, { payload }: PayloadAction<Todo>) => {
       let id: string = randomIDGenerator();
       let todo = payload;
@@ -37,42 +39,48 @@ const todosSlice = createSlice({
         while (id in state) {
           id = randomIDGenerator();
         }
-        return ({
+        let newState = {
           ...state,
           [id]: payload
-        })
+        }
+        saveTodos(newState);
+        return(newState);
       }
-      return ({
-        ...state
-      })
+      return ({ ...state });
     },
 
     modifyTodo: (state, { payload }: PayloadAction<TodoModifyPayload>) => {
       if (payload.id in state) {
         let id: string = payload.id;
-        return ({
+        let newState = {
           ...state,
           [id]: payload.todo
-        })
+        };
+        saveTodos(newState);
+        return (newState);
       }
-      return ({
-        ...state
-      })
+      return ({ ...state })
     },
 
     deleteTodo: (state, { payload }: PayloadAction<string>) => {
       let newState = { ...state };
       delete newState[payload];
+      saveTodos(newState);
       return newState;
-    }
+    },
 
+    readTodosFromFile: (state, { payload }: PayloadAction<TodoStateInterface>) => {
+      console.log("reducer called");
+      return payload;
+    }
   }
 });
 
 export const {
   addTodo,
   modifyTodo,
-  deleteTodo
+  deleteTodo,
+  readTodosFromFile
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
