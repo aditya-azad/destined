@@ -75,7 +75,7 @@ const MainScreen: React.FC = () => {
         {renderCategory("Overdue", overdueTodoList)}
         {renderCategory("Today", todayTodoList)}
         {renderCategory("Upcoming", upcomingTodoList)}
-        {renderCategory("Unscheduled", upcomingTodoList)}
+        {renderCategory("Unscheduled", unscheduledTodoList)}
       </div>
     </div>
   )
