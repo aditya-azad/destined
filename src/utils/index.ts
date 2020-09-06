@@ -20,30 +20,40 @@ export const fetchTodos = () => {
 }
 
 export const todoParser = (todo: Todo): boolean => {
-  let flag = false;
+  // parse body
   if (todo.body != "") {
-    flag = true;
-    // parse date time
+    // parse date 
     if (todo.date != "") {
       let parsedDate = new Date(todo.date);
-      if (isNaN(parsedDate.getTime())) return;
-      // fix year
+      // check for special case
+      if (todo.date.match(/^t.*$/i)) parsedDate = new Date();
+      // final check
+      if (isNaN(parsedDate.getTime())) return false;
+      // fix year if not fixed
       if (parsedDate.getFullYear() < new Date().getFullYear()) parsedDate.setFullYear(new Date().getFullYear());
       todo.date = parsedDate.toDateString();
-      // parse time if added
+      // parse time
       if (todo.time != "") {
-        var time = todo.time.match(/(\d+)(:(\d\d))?\s*(p?)/i);
-        if (time == null) return;
-        var hours = parseInt(time[1],10);
+        var time = todo.time.match(/(\d+)(:(\d\d))?\s*(p?)/i);	
+        if (time == null) return false;
+        var hours = parseInt(time[1],10);	 
         if (hours == 12 && !time[4]) { hours = 0; }
         else { hours += (hours < 12 && time[4])? 12 : 0; }	
-        var d = new Date();
+        var d = new Date();    	    	
         d.setHours(hours);
         d.setMinutes(parseInt(time[3],10) || 0);
-        d.setSeconds(0, 0);
+        d.setSeconds(0, 0);	 
         todo.time = d.toLocaleTimeString();
       }
     }
+    // parse repeat
+    if (todo.repeat != "") {
+      if (todo.date == "") return false;
+      let repeat = todo.repeat.match(/[dwmy]/i);
+      if (!repeat) return false;
+      todo.repeat = repeat[0];
+    }
+    return true;
   }
-  return flag;
+  return false;
 }

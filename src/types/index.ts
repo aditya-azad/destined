@@ -1,10 +1,11 @@
 export interface Todo {
   body: string,
   date: string,
-  time: string
+  time: string,
+  repeat: string
 }
 
-export interface TodoModifyPayload {
+export interface TodoWithIDPayload {
   todo: Todo,
   id: string
 }

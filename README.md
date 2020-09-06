@@ -3,7 +3,6 @@
 **todo**
 - Setting passed date on todo forwards to next year unless specified
 - Optimise build
-- Have repeat todo functionality
 - Sync with online services
 - Use local fonts instead of google
 
