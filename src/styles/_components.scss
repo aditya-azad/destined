@@ -81,18 +81,21 @@
 .add-todo-content {
   display: flex;
   width: 100%;
+  padding: 5px 0;
   flex-wrap: wrap;
   * {
     font-size: 1em;
     margin-right: 15px;
   }
-  :first-child {
-    flex-grow: 2;
-  }
-  :not(:first-child) {
+  input { // all input fields other than the first one
     width: 80px;  
   }
-  :nth-last-child(2) {
+  :first-child { // the body
+    width: auto;
+    flex-grow: 2;
+  }
+  svg { // trash icon
+    font-size: 20px;
     margin-right: 0;
   }
   input[type="date"], input[type="time"] {

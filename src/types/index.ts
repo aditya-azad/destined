@@ -13,8 +13,9 @@ export interface TodoProps {
   shouldDisplayDate?: boolean
   shouldDisplayTime?: boolean
   overdue?: boolean
-  id: string
-  todo: Todo
+  todoAdder?: boolean
+  id?: string
+  todo?: Todo
 }
 
 export interface GlobalsState {

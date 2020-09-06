@@ -1,11 +1,11 @@
 # Destined (UNDER CONSTRUCTION)
 
 **todo**
-- Use local fonts instead of google
 - Setting passed date on todo forwards to next year unless specified
 - Optimise build
 - Have repeat todo functionality
 - Sync with online services
+- Use local fonts instead of google
 
 ## What is this?
 
