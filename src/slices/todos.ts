@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 import { randomIDGenerator } from "../utils";
 import { Todo, TodoStateInterface, TodoModifyPayload } from "../types";
-import { saveTodos, fetchTodos } from "../utils";
+import { saveTodos, fetchTodos, todoParser } from "../utils";
 
 let initialState:TodoStateInterface = fetchTodos();
 
@@ -12,52 +12,40 @@ const todosSlice = createSlice({
   reducers: {
 
     addTodo: (state, { payload }: PayloadAction<Todo>) => {
-      let id: string = randomIDGenerator();
       let todo = payload;
-      if (todo.body != "") {
-        // parse date time
-        if (todo.date != "") {
-          let parsedDate = new Date(todo.date);
-          if (isNaN(parsedDate.getTime())) return;
-          // fix year
-          if (parsedDate.getFullYear() < new Date().getFullYear()) parsedDate.setFullYear(new Date().getFullYear());
-          todo.date = parsedDate.toDateString();
-          // parse time if added
-          if (todo.time != "") {
-            var time = todo.time.match(/(\d+)(:(\d\d))?\s*(p?)/i);
-            if (time == null) return;
-            var hours = parseInt(time[1],10);
-            if (hours == 12 && !time[4]) { hours = 0; }
-            else { hours += (hours < 12 && time[4])? 12 : 0; }	
-            var d = new Date();
-            d.setHours(hours);
-            d.setMinutes(parseInt(time[3],10) || 0);
-            d.setSeconds(0, 0);
-            todo.time = d.toLocaleTimeString();
-          }
-        }
+      // parse Todo
+      if (todoParser(todo)) {
+        // generate id
+        let id: string = randomIDGenerator();
         while (id in state) {
           id = randomIDGenerator();
         }
+        // create new state
         let newState = {
           ...state,
-          [id]: payload
+          [id]: todo
         }
+        // write state to file
         saveTodos(newState);
         return(newState);
+      } else {
+        return ({ ...state });
       }
-      return ({ ...state });
     },
 
     modifyTodo: (state, { payload }: PayloadAction<TodoModifyPayload>) => {
       if (payload.id in state) {
-        let id: string = payload.id;
-        let newState = {
-          ...state,
-          [id]: payload.todo
-        };
-        saveTodos(newState);
-        return (newState);
+        let todo = payload.todo;
+        // parse todo
+        if (todoParser(todo)) {
+          let id: string = payload.id;
+          let newState = {
+            ...state,
+            [id]: payload.todo
+          };
+          saveTodos(newState);
+          return (newState);
+        }
       }
       return ({ ...state })
     },
