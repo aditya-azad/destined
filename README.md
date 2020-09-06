@@ -5,6 +5,7 @@
 - Optimise build
 - Sync with online services
 - Use local fonts instead of google
+- An alarm/notification system for time
 
 ## What is this?
 
