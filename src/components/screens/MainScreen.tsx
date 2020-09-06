@@ -54,28 +54,28 @@ const MainScreen: React.FC = () => {
   overdueTodoList.sort(dateSorter);
   upcomingTodoList.sort(dateSorter);
 
+  const renderCategory = (title: string, list: any[]) => {
+    if (list.length > 0) {
+      return (
+        <div className="category-container">
+          <h1 className="category-heading">{title}</h1>
+          {list}
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   return (
     <div className="display-container">
       <div className="display-content">
         <TopBar/>
         <AddTodoBox />
-
-        <div className="category-container">
-          <h1 className="category-heading">Today</h1>
-          {overdueTodoList}
-          {todayTodoList}
-        </div>
-
-        <div className="category-container">
-          <h1 className="category-heading">Upcoming</h1>
-          {upcomingTodoList}
-        </div>
-
-        <div className="category-container">
-          <h1 className="category-heading">Unscheduled</h1>
-          {unscheduledTodoList}
-        </div>
-
+        {renderCategory("Overdue", overdueTodoList)}
+        {renderCategory("Today", todayTodoList)}
+        {renderCategory("Upcoming", upcomingTodoList)}
+        {renderCategory("Unscheduled", upcomingTodoList)}
       </div>
     </div>
   )
