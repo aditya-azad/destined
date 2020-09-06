@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { TodoProps } from "../types";
 import { Todo as TodoInterface } from "../types";
@@ -90,7 +90,10 @@ const Todo: React.FC<TodoProps> = ({todo, id, overdue, shouldDisplayDate, should
         <div className="todo-checkbox" onClick={() => dispatch(doneTodo(id))}></div>
         <div onClick={openEditBox}
             className={"todo-body" + (overdue ? " todo-overdue" : "")}>
-          {todo ? todo.body : null}
+          <div className="todo-body-left">
+            {todo ? <div>{todo.body}</div> : null}
+            {todo ? (todo.repeat ? <FontAwesomeIcon icon={faRedoAlt} /> : null) : null}
+          </div>
           <div className={"todo-timestamp-container" + (overdue ? " todo-overdue" : "")}>
             {shouldDisplayDate && todo.date != "" ? renderDate() : null}
             {shouldDisplayTime && todo.time != "" ? renderTime() : null}

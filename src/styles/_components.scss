@@ -39,6 +39,15 @@
   justify-content: space-between;
 }
 
+.todo-body-left {
+  display: flex;
+  :not(:first-child) {
+    color: var(--tertiary-color);
+    font-size: 18px;
+    padding-left: 5px;
+  }
+}
+
 .todo-timestamp-container {
   display: flex;
   color: var(--tertiary-color);
@@ -65,7 +74,10 @@
   * {
     align-self: center;
     font-size: 1.3em;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
+  }
+  svg {
+    font-size: 1em;
   }
 }
 
