@@ -4,11 +4,12 @@
   "description": "A tasks/calendar management system",
   "main": "./src/electron.js",
   "scripts": {
-    "dev": "concurrently \"npm run client\" \"npm run electron\"",
     "client": "webpack-dev-server --config config/webpack.config.js",
     "electron": "electron .",
-    "build": "webpack --config config/webpack.config.js",
-    "package": "electron-packager ."
+    "webpack": "webpack --config config/webpack.config.js",
+    "dev": "concurrently \"npm run client\" \"npm run electron\"",
+    "build": "npm run webpack && electron-packager . --icon=assets/icon.ico",
+    "build-osx": "npm run webpack && electron-packager . --icon=assets/icon.icns --platform=darwin"
   },
   "author": "Aditya Azad",
   "license": "MIT",
