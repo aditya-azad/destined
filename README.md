@@ -6,7 +6,7 @@
 
 This project aims to combine calendar and tasks management systems into one. It is pretty similar to some other software/web applications available.
 
-I care about minimalism and frankly don't like the complexity that comes with other scheduling software. I just want to know what I have to do, when I have to do it and not care about organizing them all the time (kind of misses the point of time management)
+I care about minimalism and frankly don't like the complexity that comes with other scheduling software. I just want to know what I have to do, when I have to do it and not care about organizing them all the time (kind of misses the point of time management).
 
 I also care about owning my data and so everything is stored in a JSON file locally. No servers involved.
 
