@@ -61,8 +61,6 @@ For OSX (not tested):
 npm run build-osx
 ```
 
-Note: use `bulid-mac` for Mac OSX instead of `build`
-
 3. A directory named `destined*` will be created (\* can be anything depending on your OS eg. on Windows 64bit it will be `destined-win32-x64`)
 4. Copy it to any place on your PC and run the destined executable
 
