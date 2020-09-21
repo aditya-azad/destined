@@ -70,6 +70,7 @@ npm run build-osx
 
 - Setting passed date on todo forwards to next year unless specified
 - Color coding the tasks
+- Sorting tasks based on body, date/time, color
 - Put tasks to overdue section as soon as date AND time passes not just the date
 - Use local fonts instead of Google fonts
 - An alarm/notification system
