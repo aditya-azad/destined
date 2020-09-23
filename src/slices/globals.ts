@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { GlobalsState } from "../types";
 
 const initialState: GlobalsState = {
-  toggleTodoAddBox: false,
+  toggleTodoAddBox: true,
 };
 
 const globalsSlice = createSlice({

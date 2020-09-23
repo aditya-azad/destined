@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faRedoAlt, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
 import { TodoProps } from "../types";
 import { Todo as TodoInterface } from "../types";
@@ -71,14 +71,35 @@ const Todo: React.FC<TodoProps> = ({todo, id, overdue, shouldDisplayDate, should
     )
   }
 
+  const renderColorPills = () => {
+    // get the default text color from sass
+    let defaultColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+    let colors = [
+      defaultColor, "#ddd566", "#8c5309", "#62bf54",
+      "#6bd4d6", "#142aba", "#d06bd6", "#8d2199"
+    ];
+    let pills = [];
+    for (let i = 0; i < colors.length; i++) {
+      pills.push(
+        <div key={i} className="pill" style={{backgroundColor: colors[i] }}/>
+      );
+    }
+    return pills;
+  }
+
   const renderModifier = () => {
     return (
       <form className="add-todo-content" onSubmit={handleSubmit}>
-        <input onChange={handleTaskTextChange} value={taskText} placeholder="Task" autoFocus />
-        <input onChange={handleDateTextChange} value={dateText} placeholder="Date" />
-        <input onChange={handleTimeTextChange} value={timeText} placeholder="Time" />
-        <input onChange={handleRepeatTextChange} value={repeatText} placeholder="Repeat" />
-        {todoAdder ? null : <FontAwesomeIcon icon={faTrash} onClick={() => dispatch(deleteTodo(id))} />}
+        <div className="add-todo-row">
+          <input onChange={handleTaskTextChange} value={taskText} placeholder="Task" autoFocus />
+          <input onChange={handleDateTextChange} value={dateText} placeholder="Date" />
+          <input onChange={handleTimeTextChange} value={timeText} placeholder="Time" />
+          <input onChange={handleRepeatTextChange} value={repeatText} placeholder="Repeat" />
+          {todoAdder ? null : <FontAwesomeIcon icon={faTrash} onClick={() => dispatch(deleteTodo(id))} />}
+        </div>
+        <div className="add-todo-color-picker">
+          {renderColorPills()}
+        </div>
         <input className="submit-button" type="submit" />
       </form>
     )
