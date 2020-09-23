@@ -2,7 +2,8 @@ export interface Todo {
   body: string,
   date: string,
   time: string,
-  repeat: string
+  repeat: string,
+  color: string
 }
 
 export interface TodoWithIDPayload {
@@ -13,7 +14,6 @@ export interface TodoWithIDPayload {
 export interface TodoProps {
   shouldDisplayDate?: boolean
   shouldDisplayTime?: boolean
-  overdue?: boolean
   todoAdder?: boolean
   id?: string
   todo?: Todo
@@ -30,4 +30,10 @@ export interface RootState {
 
 export interface TodoStateInterface {
   [key: string]: Todo
+}
+
+export interface CategoryProps {
+  todos: any[],
+  title: string,
+  sort: number
 }

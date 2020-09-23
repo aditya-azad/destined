@@ -22,11 +22,15 @@ export const fetchTodos = () => {
 export const todoParser = (todo: Todo): boolean => {
   // parse body
   if (todo.body != "") {
-    // parse date 
+    // parse date
     if (todo.date != "") {
       let parsedDate = new Date(todo.date);
       // check for special case
-      if (todo.date.match(/^t.*$/i)) parsedDate = new Date();
+      if (todo.date.match(/^tom.*$/i)) {
+        parsedDate = new Date();
+        parsedDate.setDate(parsedDate.getDate() + 1);
+      }
+      else if (todo.date.match(/^t.*$/i)) parsedDate = new Date();
       // final check
       if (isNaN(parsedDate.getTime())) return false;
       // fix year if not fixed
@@ -34,15 +38,15 @@ export const todoParser = (todo: Todo): boolean => {
       todo.date = parsedDate.toDateString();
       // parse time
       if (todo.time != "") {
-        var time = todo.time.match(/(\d+)(:(\d\d))?\s*(p?)/i);	
+        var time = todo.time.match(/(\d+)(:(\d\d))?\s*(p?)/i);
         if (time == null) return false;
-        var hours = parseInt(time[1],10);	 
+        var hours = parseInt(time[1],10);
         if (hours == 12 && !time[4]) { hours = 0; }
-        else { hours += (hours < 12 && time[4])? 12 : 0; }	
-        var d = new Date();    	    	
+        else { hours += (hours < 12 && time[4])? 12 : 0; }
+        var d = new Date();
         d.setHours(hours);
         d.setMinutes(parseInt(time[3],10) || 0);
-        d.setSeconds(0, 0);	 
+        d.setSeconds(0, 0);
         todo.time = d.toLocaleTimeString();
       }
     }
