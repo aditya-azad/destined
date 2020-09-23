@@ -40,7 +40,7 @@ const MainScreen: React.FC = () => {
       )
     } else if (isToday(dateTimeString) < 0) {
       overdueTodoList.push(
-        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]} id={key} overdue={true}/>
+        <Todo key={key} shouldDisplayDate={true} shouldDisplayTime={true} todo={todos[key]} id={key}/>
       )
     } else {
       upcomingTodoList.push(
