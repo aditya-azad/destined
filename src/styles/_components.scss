@@ -3,10 +3,23 @@
   margin-bottom: 25px;
 }
 
-.category-heading {
-  font-size: 1em;
-  font-family: var(--heading-font);
+.category-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 10px;
+  * {
+    margin-right: 10px;
+  }
+  svg {
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+  }
+}
+
+.category-heading {
+  font-size: 1.3em;
+  font-family: var(--heading-font);
   color: var(--accent-color);
 }
 
@@ -60,10 +73,6 @@
   }
 }
 
-.todo-overdue {
-  color: var(--warning-color);
-}
-
 //////////////////////////////////////////////////////////////////////////// topbar
 .topbar-container {
   display: flex;
@@ -84,7 +93,7 @@
 //////////////////////////////////////////////////////////////////////////// add todo
 .add-todo-container {
   display: flex;
-  padding: 10px;
+  padding: 0 10px;
   border: 3px solid var(--secondary-color);
   border-radius: 5px;
   margin-bottom: 30px;
@@ -94,17 +103,25 @@
   display: flex;
   width: 100%;
   padding: 5px 0;
+  flex-direction: column;
   flex-wrap: wrap;
+}
+
+.add-todo-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px 0;
+  width: 100%;
   * {
     font-size: 1em;
     margin-right: 15px;
   }
   input { // all input fields other than the first one
-    width: 80px;  
+    width: 80px;
   }
-  :first-child { // the body
-    width: auto;
-    flex-grow: 2;
+  :last-child {
+    margin-right: 0;
   }
   svg { // icons
     margin-right: 0;
@@ -116,6 +133,30 @@
   }
 }
 
+.grow {
+  width: auto;
+  flex-grow: 2;
+}
+
 .submit-button {
   display: none;
+}
+
+///////////////////////////////////////////////////////////////////////////// pill
+
+.pill {
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 100%;
+  border: 2px solid var(--secondary-color);
+  width: 25px;
+  height: 25px;
+}
+
+.pill-active {
+  border-color: var(--text-color);
+}
+
+.pill:hover {
+  border: 2px solid var(--text-color);
 }
