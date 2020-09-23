@@ -31,3 +31,9 @@ export interface RootState {
 export interface TodoStateInterface {
   [key: string]: Todo
 }
+
+export interface CategoryProps {
+  todos: any[],
+  title: string,
+  sort: number
+}

@@ -3,10 +3,23 @@
   margin-bottom: 25px;
 }
 
-.category-heading {
-  font-size: 1em;
-  font-family: var(--heading-font);
+.category-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 10px;
+  * {
+    margin-right: 10px;
+  }
+  svg {
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+  }
+}
+
+.category-heading {
+  font-size: 1.3em;
+  font-family: var(--heading-font);
   color: var(--accent-color);
 }
 

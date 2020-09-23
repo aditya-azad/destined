@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash, faRedoAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faRedoAlt, faCheck } from "@fortawesome/free-solid-svg-icons"
 
 import { TodoProps } from "../types";
 import { Todo as TodoInterface } from "../types";
@@ -35,12 +35,6 @@ const Todo: React.FC<TodoProps> = ({todo, id, shouldDisplayDate, shouldDisplayTi
     setRepeatText(todoAdder ? "" : todo.repeat);
     setModifying(true);
   }
-
-  useEffect(() => {
-    if (todo) {
-      console.log(todo);
-    }
-  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -31,6 +31,7 @@ Tasks that do not have a deadline are put into this section.
 ## Tiny features
 
 - Optionally add date/time/repeat
+- You can sort the categories according to date/time, color and todo body by click the button on the side of category headings
 - Date
   - Writing `t` in date section adds today's date to the task date
   - Writing `tom` in date section adds tomorrow's date to the task date
@@ -42,6 +43,7 @@ Tasks that do not have a deadline are put into this section.
 
 - Not fully tested on Linux (partial) and Mac OS (none)
 - The todos are stored in `destined-todos.json` file in the main directory keep a backup of it
+- **`v1` destined todos file is not compatible with `v2` and so on**
 
 ## Installation
 
@@ -72,7 +74,6 @@ npm run build-osx
 #### TODO
 
 - Setting passed date on todo forwards to next year unless specified
-- Sorting tasks based on body, date/time, color
 - Put tasks to overdue section as soon as date AND time passes not just the date
 - Use local fonts instead of Google fonts
 - An alarm/notification system
