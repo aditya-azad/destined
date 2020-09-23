@@ -32,7 +32,7 @@ app.on("activate", () => {
 });
 
 ipcMain.handle("save-todos", (event, todos) => {
-  fs.writeFile(TODOS_FILE, JSON.stringify(todos), "utf8", function (err) {
+  fs.writeFile(TODOS_FILE, todos, "utf8", function (err) {
     if (err) {
       throw "cannot save todos!";
     }
@@ -41,7 +41,7 @@ ipcMain.handle("save-todos", (event, todos) => {
 
 ipcMain.on("get-todos", (event) => {
   try {
-    event.returnValue = JSON.parse(JSON.parse(fs.readFileSync(TODOS_FILE, "utf8")));
+    event.returnValue = JSON.parse(fs.readFileSync(TODOS_FILE, "utf8"));
   } catch {
     event.returnValue = {};
   }
