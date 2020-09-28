@@ -68,12 +68,3 @@ npm run build-osx
 
 3. A directory named `destined*` will be created (\* can be anything depending on your OS eg. on Windows 64bit it will be `destined-win32-x64`)
 4. Copy it to any place on your PC and run the destined executable
-
-<hr>
-
-#### TODO
-
-- Setting passed date on todo forwards to next year unless specified
-- Put tasks to overdue section as soon as date AND time passes not just the date
-- Use local fonts instead of Google fonts
-- An alarm/notification system
