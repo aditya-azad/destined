@@ -6,9 +6,9 @@
 
 This project aims to combine calendar and tasks management systems into one. It is pretty similar to some other software/web applications available.
 
-I care about minimalism and frankly don't like the complexity that comes with other scheduling software. I just want to know what I have to do, when I have to do it and not care about organizing them all the time (kind of misses the point of time management).
+This exists to sidestep the complexity that comes with most other scheduling software. It simply tells you what you have to do, when you have to do it and you don't need to worry about organizing anything.
 
-I also care about owning my data and so everything is stored in a JSON file locally. No servers involved.
+There are no servers involved, everything is stored in a JSON file.
 
 ## How it works?
 
@@ -18,7 +18,7 @@ You can view all the tasks that are supposed to be done/started/due today in one
 
 ### Upcoming tasks
 
-Since, all the scheduled tasks are displayed together at one place, it is easier to know what it is that you have to do next at all times. I don't believe in block scheduling as it is too restrictive to me personally.
+Since, all the scheduled tasks are displayed together at one place, it is easier to know what it is that you have to do next at all times.
 
 ### Overdue tasks
 
