@@ -2,7 +2,7 @@
 
 ![Screenshot](/assets/screenshot.png)
 
-## Why is this?
+## Why even use this ?
 
 This project aims to combine calendar and tasks management systems into one. It is pretty similar to some other software/web applications available.
 
@@ -10,7 +10,7 @@ This exists to sidestep the complexity that comes with most other scheduling sof
 
 There are no servers involved, everything is stored in a JSON file.
 
-## How it works?
+## How it works
 
 ### Today's tasks
 
