@@ -11,6 +11,7 @@ function createWindow() {
     height: 1000,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false
     },
   });
   isDev ? null : win.removeMenu();
