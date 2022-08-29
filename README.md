@@ -10,16 +10,6 @@ This exists to sidestep the complexity that comes with most other scheduling sof
 
 There are no servers involved, everything is stored in a JSON file.
 
-## Other versions
-
-See other branches in this repository for different versions of this program. **They are not compatible with each other**:
-- desktop
-    - This is the one you are looking at
-    - built with electron, react
-- cli
-    - It is a command line version compatible with [todo.txt](https://github.com/todotxt/todo.txt) format
-    - built with python
-
 ## How it works
 
 ### Today's tasks
