@@ -10,6 +10,16 @@ This exists to sidestep the complexity that comes with most other scheduling sof
 
 There are no servers involved, everything is stored in a JSON file.
 
+## Other versions
+
+See other branches in this repository for different versions of this program. **They are not compatible with each other**:
+- desktop
+    - This is the one you are looking at
+    - built with electron, react
+- cli
+    - It is a command line version compatible with [todo.txt](https://github.com/todotxt/todo.txt) format
+    - built with python
+
 ## How it works
 
 ### Today's tasks
@@ -38,7 +48,7 @@ Tasks that do not have a deadline are put into this section.
 - Repeat
   - Writing `d`, `w`, `m`, `y` in repeat section makes the task repeatable on daily, weekly, monthly, yearly basis
   - Once the task is done a new date is added to it depending on the repeat value
-- That's 
+- That's
 
 ## Disclaimer
 
